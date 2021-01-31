@@ -25,7 +25,6 @@ This is a cheatsheet for deploying a Rails on a Digital Ocean droplet using Dokk
    - You will need at least 2GB of memory for `bundle install` to avoid swap.
 2. After the server initializes immediately go to the IP address and set the admin public key.
 3. Add a domain to the Digital Ocean project. Set the name servers and an A record pointing to the droplet.
-4. Setup a Digital Ocean firewall to only allow 22, 80, and 443 inbound.
 
 ## Dokku Setup
 
@@ -57,7 +56,7 @@ dokku redis:link my_rails_app-redis my_rails_app
 
 ```
 dokku domains:clear-global
-dokku domains:set my_rails_app my-custom-domaon.com
+dokku domains:set my_rails_app my-custom-domain.com
 dokku config:set --no-restart my_rails_app DOKKU_LETSENCRYPT_EMAIL=admin@example.com
 dokku letsencrypt my_rails_app
 dokku letsencrypt:cron-job --add
