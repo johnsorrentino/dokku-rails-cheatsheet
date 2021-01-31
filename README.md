@@ -90,7 +90,6 @@ Set your environment variables. Note that we're using the `--remote staging` and
 ```
 dokku --remote staging config:set RAILS_MASTER_KEY=`cat config/credentials/production.key`
 dokku --remote production config:set RAILS_MASTER_KEY=`cat config/credentials/production.key`
-
 ```
 
 ## Useful Commands
