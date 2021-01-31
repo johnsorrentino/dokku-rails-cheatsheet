@@ -16,8 +16,26 @@ This is a cheatsheet for deploying a Rails on a Digital Ocean droplet using Dokk
 
 ## Local Setup
 
-1. Setup your Rails application
-2. Install the Dokku CLI for MacOS - `brew install dokku/repo/dokku`
+1. Setup your Rails application.
+2. Create a Procfile in the root of your Rails repos.
+   ```
+   web: bundle exec puma -C config/puma.rb
+   worker: bundle exec sidekiq -e production -C config/sidekiq.yml
+   ```
+3. Create a post deploy hook in the rook of your Rails repo. This will automatically run db:migrate after deployment.
+   ```
+   {
+     "name": "my_rails_app",
+     "description": "My Rails App",
+     "keywords": [],
+     "scripts": {
+       "dokku": {
+         "postdeploy": "bundle exec rake db:migrate"
+       }
+     }
+   }
+   ```
+4. Install the Dokku CLI for MacOS - `brew install dokku/repo/dokku`
 
 ## Server Setup
 
