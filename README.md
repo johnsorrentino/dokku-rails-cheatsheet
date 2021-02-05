@@ -114,15 +114,19 @@ dokku --remote production config:set RAILS_MASTER_KEY=`cat config/credentials/pr
 Run the Rails console remotely.
 
 ```
-dokku --remote staging run rails c
-dokku --remote production run rails c
+dokku --remote <environment> run rails c
 ```
 
 Scale your workers.
 
 ```
-dokku --remote staging ps:scale worker=2
-dokku --remote production ps:scale worker=2
+dokku --remote <environment> ps:scale worker=2
+```
+
+Stop your workers.
+
+```
+dokku --remote <environment> ps:stop
 ```
 
 Deploy your application.
@@ -130,4 +134,10 @@ Deploy your application.
 ```
 git push staging develop
 git push production main
+```
+
+Reset your database.
+
+```
+dokku --remote <environment> run bundle exec rake db:reset
 ```
