@@ -50,12 +50,15 @@ These commands are run while you are SSH'd into the droplet.
 
 ### Dokku Plugins
 
-Install the Postgres, Redis, and Let's Encrypt plugins.
+Install the Postgres, Redis, and Let's Encrypt plugins. Dokku redirct, maintenance, and apt are nice to have as well.
 
 ```
 sudo dokku plugin:install https://github.com/dokku/dokku-postgres.git
 sudo dokku plugin:install https://github.com/dokku/dokku-redis.git
 sudo dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
+sudo dokku plugin:install https://github.com/dokku/dokku-redirect.git
+sudo dokku plugin:install https://github.com/dokku/dokku-maintenance.git maintenance
+sudo dokku plugin:install https://github.com/dokku-community/dokku-apt apt
 ```
 
 ### Dokku Services
