@@ -80,6 +80,20 @@ dokku letsencrypt my_rails_app
 dokku letsencrypt:cron-job --add
 ```
 
+### Let's Encrrypt Testing
+
+The firewall needs to allow traffic over port 80 to your droplet for Let's Encrypt to work. Let's Encrypt will block you after a few failures so it's best to work in their staging environment first.
+
+```
+dokku config:set --no-restart DOKKU_LETSENCRYPT_SERVER=staging
+```
+
+Re-enable the production environment.
+
+```
+dokku config:set --no-restart DOKKU_LETSENCRYPT_SERVER=default
+```
+
 ## Deployment Setup
 
 Setup the remote staging and production repos on the Dokku server. There are two separate Dokku deployments on Digital Ocean with separate IP addresses.
