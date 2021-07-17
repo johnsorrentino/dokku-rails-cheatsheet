@@ -24,6 +24,7 @@ This is a cheatsheet for deploying a Rails on a Digital Ocean droplet using Dokk
    ```
 3. Create a post deploy hook in the rook of your Rails repo. This will automatically run db:migrate after deployment.
    ```
+   # app.json
    {
      "name": "my_rails_app",
      "description": "My Rails App",
